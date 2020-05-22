@@ -23,4 +23,8 @@ public:
 	void Lpush_back(LData data);
 	void Lpop_front(LData data);
 	void Lpop_back(LData data);
+	int Lsize();
+	LData Lfront();
+	LData Lback();
+	bool Lempty();
 };

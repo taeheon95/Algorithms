@@ -6,7 +6,13 @@ LinkedList<LData>::LinkedList()
 {
 	numofdata = 0;
 	head = new Node();
-	tail = head;
+	tail = new Node();
+
+	head->next = tail;
+	head->prev = nullptr;
+
+	tail->prev = head;
+	tail->next = nullptr
 }
 
 template<class LData>
@@ -55,4 +61,29 @@ void LinkedList<LData>::Lpop_back(LData data)
 	rnode->prev = nullptr;
 	numofdata--;
 	delete rnode;
+}
+
+template<class LData>
+int LinkedList<LData>::Lsize()
+{
+	return numofdata;
+}
+
+template<class LData>
+LData LinkedList::Lfront()
+{
+	return head->next->data;
+}
+template<class LData>
+LData LinkedList::Lback()
+{
+	return tail->next->data;
+}
+
+template<class LData>
+bool LinkedList::Lempty()
+{
+	if(numofdata == 0)
+		return true;
+	else return false;
 }
