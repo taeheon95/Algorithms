@@ -7,7 +7,11 @@ public:
 	Node* next;
 	Node* prev;
 	Node() 
-	{ data = 0; next = nullptr; prev = nullptr; }
+	{ 
+		data = 0; 
+		next = nullptr;
+		prev = nullptr; 
+	}
 };
 
 template<class LData>
@@ -21,15 +25,12 @@ public:
 	LinkedList();
 	void Lpush_front(LData data);
 	void Lpush_back(LData data);
-	
 	int Lpop_front();
 	int Lpop_back();
 	int Lsize();
-
 	LData Lfront();
 	LData Lback();
 	bool Lempty();
-
 	void Linsert(int index, LData data);
 	void Lerase(int index);
 };

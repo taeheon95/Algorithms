@@ -40,7 +40,7 @@ void LinkedList<LData>::Lpush_back(LData data)
 }
 
 template<class LData>
-void LinkedList<LData>::Lpop_front()
+int LinkedList<LData>::Lpop_front()
 {
 	if(numofdata>0){
 		Node* rnode = head->next;
@@ -60,7 +60,7 @@ void LinkedList<LData>::Lpop_front()
 }
 
 template<class LData>
-void LinkedList<LData>::Lpop_back()
+int LinkedList<LData>::Lpop_back()
 {
 	if(numofdata>0){
 		Node* rnode = tail->prev;
@@ -107,10 +107,41 @@ template<class LData>
 void LinkedList<LData>::Linsert(int index, LData data)
 {
 	if(index == 0)
-	{
 		this.Lpush_front(data);
+	else if (index == numofdata)
+		this.Lpush_back(data);
+	else if (index < numofdata){
+		Node* cur = head->next;
+		Node* newnode = new Node();
+		newnode->data = data;
+		for(int i=0; i<index; i++)
+			cur = cur->next;
+		newnode->prev = cur;
+		newnode->next = cur->next;
+		cur->next->prev = newnode;
+		cur->next = newnode;
 	}
-	else{
-		for(int i=0; i<index)
+	numofdata++;
+}
+
+template<class LData>
+void LinkedList<LData>::Lerase(int index)
+{
+	if(index == 0)
+		this.Lpop_front();
+	else if(index == numofdata)
+		this.Lpop_back();
+	else if(index < numofdata){
+		Node* cur = head->next;
+		Node* rnode;
+		for(int i=0; i<index; i++)
+			cur = cur->next;
+		rnode = cur->next;
+		cur->next = rnode->next;
+		rnode->next->prev = cur;
+		rnode->prev = nullptr;
+		rnode->next = nullptr;
+		delete rnode;
 	}
+	numofdata--;
 }
