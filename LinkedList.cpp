@@ -50,10 +50,11 @@ void LinkedList<LData>::Lpop_front()
 		rnode->prev = nullptr;
 		numofdata--;
 		delete rnode;
+		return 1;
 	}
 	else
 	{
-		
+		return -1;
 	}
 	
 }
@@ -69,9 +70,11 @@ void LinkedList<LData>::Lpop_back()
 		rnode->prev = nullptr;
 		numofdata--;
 		delete rnode;
+		return 1;
 	}
-	else{
-
+	else
+	{
+		return -1;
 	}
 }
 
@@ -89,7 +92,7 @@ LData LinkedList<LData>::Lfront()
 template<class LData>
 LData LinkedList<LData>::Lback()
 {
-	return tail->next->data;
+	return tail->prev->data;
 }
 
 template<class LData>

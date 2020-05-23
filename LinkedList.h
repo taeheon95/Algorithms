@@ -21,9 +21,11 @@ public:
 	LinkedList();
 	void Lpush_front(LData data);
 	void Lpush_back(LData data);
-	void Lpop_front();
-	void Lpop_back();
+	
+	int Lpop_front();
+	int Lpop_back();
 	int Lsize();
+
 	LData Lfront();
 	LData Lback();
 	bool Lempty();
