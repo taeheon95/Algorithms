@@ -40,27 +40,39 @@ void LinkedList<LData>::Lpush_back(LData data)
 }
 
 template<class LData>
-void LinkedList<LData>::Lpop_front(LData data)
+void LinkedList<LData>::Lpop_front()
 {
-	Node* rnode = head->next;
-	rnode->next->prev = head;
-	head->next = rnode->next;
-	rnode->next = nullptr;
-	rnode->prev = nullptr;
-	numofdata--;
-	delete rnode;
+	if(numofdata>0){
+		Node* rnode = head->next;
+		rnode->next->prev = head;
+		head->next = rnode->next;
+		rnode->next = nullptr;
+		rnode->prev = nullptr;
+		numofdata--;
+		delete rnode;
+	}
+	else
+	{
+		
+	}
+	
 }
 
 template<class LData>
-void LinkedList<LData>::Lpop_back(LData data)
+void LinkedList<LData>::Lpop_back()
 {
-	Node* rnode = tail->prev;
-	rnode->prev->next = tail;
-	tail->prev = rnode->prev;
-	rnode->next = nullptr;
-	rnode->prev = nullptr;
-	numofdata--;
-	delete rnode;
+	if(numofdata>0){
+		Node* rnode = tail->prev;
+		rnode->prev->next = tail;
+		tail->prev = rnode->prev;
+		rnode->next = nullptr;
+		rnode->prev = nullptr;
+		numofdata--;
+		delete rnode;
+	}
+	else{
+
+	}
 }
 
 template<class LData>
@@ -70,20 +82,32 @@ int LinkedList<LData>::Lsize()
 }
 
 template<class LData>
-LData LinkedList::Lfront()
+LData LinkedList<LData>::Lfront()
 {
 	return head->next->data;
 }
 template<class LData>
-LData LinkedList::Lback()
+LData LinkedList<LData>::Lback()
 {
 	return tail->next->data;
 }
 
 template<class LData>
-bool LinkedList::Lempty()
+bool LinkedList<LData>::Lempty()
 {
 	if(numofdata == 0)
 		return true;
 	else return false;
+}
+
+template<class LData>
+void LinkedList<LData>::Linsert(int index, LData data)
+{
+	if(index == 0)
+	{
+		this.Lpush_front(data);
+	}
+	else{
+		for(int i=0; i<index)
+	}
 }
