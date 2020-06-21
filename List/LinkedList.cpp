@@ -1,8 +1,8 @@
 #include"LinkedList.h"
 #include<iostream>
 
-template<class LData>
-LinkedList<LData>::LinkedList()
+template<class Type>
+LinkedList<Type>::LinkedList()
 {
 	numofdata = 0;
 	head = new Node();
@@ -15,8 +15,8 @@ LinkedList<LData>::LinkedList()
 	tail->next = nullptr
 }
 
-template<class LData>
-void LinkedList<LData>::Lpush_front(LData data)
+template<class Type>
+void LinkedList<Type>::Lpush_front(Type data)
 {
 	Node* newnode = new Node();
 	newnode->next = head;
@@ -27,8 +27,8 @@ void LinkedList<LData>::Lpush_front(LData data)
 	numofdata++;
 }
 
-template<class LData>
-void LinkedList<LData>::Lpush_back(LData data)
+template<class Type>
+void LinkedList<Type>::Lpush_back(Type data)
 {
 	Node* newnode = new Node();
 	newnode->prev = tail;
@@ -39,8 +39,8 @@ void LinkedList<LData>::Lpush_back(LData data)
 	numofdata++;
 }
 
-template<class LData>
-int LinkedList<LData>::Lpop_front()
+template<class Type>
+int LinkedList<Type>::Lpop_front()
 {
 	if(numofdata>0){
 		Node* rnode = head->next;
@@ -59,8 +59,8 @@ int LinkedList<LData>::Lpop_front()
 	
 }
 
-template<class LData>
-int LinkedList<LData>::Lpop_back()
+template<class Type>
+int LinkedList<Type>::Lpop_back()
 {
 	if(numofdata>0){
 		Node* rnode = tail->prev;
@@ -78,33 +78,33 @@ int LinkedList<LData>::Lpop_back()
 	}
 }
 
-template<class LData>
-int LinkedList<LData>::Lsize()
+template<class Type>
+int LinkedList<Type>::Lsize()
 {
 	return numofdata;
 }
 
-template<class LData>
-LData LinkedList<LData>::Lfront()
+template<class Type>
+Type LinkedList<Type>::Lfront()
 {
 	return head->next->data;
 }
-template<class LData>
-LData LinkedList<LData>::Lback()
+template<class Type>
+Type LinkedList<Type>::Lback()
 {
 	return tail->prev->data;
 }
 
-template<class LData>
-bool LinkedList<LData>::Lempty()
+template<class Type>
+bool LinkedList<Type>::Lempty()
 {
 	if(numofdata == 0)
 		return true;
 	else return false;
 }
 
-template<class LData>
-void LinkedList<LData>::Linsert(int index, LData data)
+template<class Type>
+void LinkedList<Type>::Linsert(int index, Type data)
 {
 	if(index == 0)
 		this.Lpush_front(data);
@@ -124,8 +124,8 @@ void LinkedList<LData>::Linsert(int index, LData data)
 	numofdata++;
 }
 
-template<class LData>
-void LinkedList<LData>::Lerase(int index)
+template<class Type>
+void LinkedList<Type>::Lerase(int index)
 {
 	if(index == 0)
 		this.Lpop_front();

@@ -1,9 +1,9 @@
 #pragma once
 
-template<class LData>
+template<class Type>
 class Node {
 public:
-	LData data;
+	Type data;
 	Node* next;
 	Node* prev;
 	Node() 
@@ -14,7 +14,7 @@ public:
 	}
 };
 
-template<class LData>
+template<class Type>
 class LinkedList
 {
 private:
@@ -23,14 +23,14 @@ private:
 	Node* tail;
 public:
 	LinkedList();
-	void Lpush_front(LData data);
-	void Lpush_back(LData data);
+	void Lpush_front(Type data);
+	void Lpush_back(Type data);
 	int Lpop_front();
 	int Lpop_back();
 	int Lsize();
-	LData Lfront();
-	LData Lback();
+	Type Lfront();
+	Type Lback();
 	bool Lempty();
-	void Linsert(int index, LData data);
+	void Linsert(int index, Type data);
 	void Lerase(int index);
 };

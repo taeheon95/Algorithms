@@ -1,21 +1,21 @@
 #pragma once
 #include<iostream>
 using namespace std;
-template<class LData>
+template<class Type>
 class ArrayList
 {
 private:
-    LData* arr[100];
+    Type* arr[100];
     int numofData;
     int curPosition;
 public:
     ArrayList();
-    void LInsert(LData data);
+    void LInsert(Type data);
 
-    bool LFirst(LData *pdata);
-    bool LNext(LData *pdata);
+    bool LFirst(Type *pdata);
+    bool LNext(Type *pdata);
 
-    LData LRemove();
+    Type LRemove();
     int LCount();
 };
 

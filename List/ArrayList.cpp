@@ -3,15 +3,15 @@
 
 using namespace std;
 
-template<class LData>
-ArrayList<LData>::ArrayList()
+template<class Type>
+ArrayList<Type>::ArrayList()
 {
     numofData = 0;
     curPosition = -1;
 }
 
-template<class LData>
-void ArrayList<LData>::LInsert(LData data)
+template<class Type>
+void ArrayList<Type>::LInsert(Type data)
 {
     if(numofData>=100)
     {
@@ -21,8 +21,8 @@ void ArrayList<LData>::LInsert(LData data)
     arr[numofData++] = data;
 }
 
-template<class LData>
-bool ArrayList<LData>::LFirst(LData *pdata)
+template<class Type>
+bool ArrayList<Type>::LFirst(Type *pdata)
 {
     if(numofData == 0)
         return false;
@@ -31,8 +31,8 @@ bool ArrayList<LData>::LFirst(LData *pdata)
     return true;
 }
 
-template<class LData>
-bool ArrayList<LData>::LNext(LData *pdata)
+template<class Type>
+bool ArrayList<Type>::LNext(Type *pdata)
 {
     if(curPosition >= numofData -1)
         return false;
@@ -41,12 +41,12 @@ bool ArrayList<LData>::LNext(LData *pdata)
     return true;
 }
 
-template<class LData>
-LData ArrayList<LData>::LRemove()
+template<class Type>
+Type ArrayList<Type>::LRemove()
 {
     int rpos = curPosition;
     int num = numofData;
-    LData rdata = arr[rpos];
+    Type rdata = arr[rpos];
     for(int i=rpos; i<num-1; i++)
         arr[i] = arr[i+1];
     curPosition--;
@@ -54,8 +54,8 @@ LData ArrayList<LData>::LRemove()
     return rdata;
 }
 
-template<class LData>
-int ArrayList<LData>::LCount()
+template<class Type>
+int ArrayList<Type>::LCount()
 {
     return numofData;
 }
