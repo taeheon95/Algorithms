@@ -35,6 +35,7 @@ class Stack
         Type top();
         void pop();
         void clear();
+        Stack<Type> operator=(Stack<Type> & otherStack);
 };
 
 #endif

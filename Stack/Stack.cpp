@@ -65,3 +65,47 @@ Type Stack<Type>::top()
     }
     else return stackTop->data;
 }
+
+template <class Type>
+void Stack<Type>::pop()
+{
+    node<Type> *temp;
+    if(!isEmpty()) {
+        temp = stackTop;
+        stackTop = stackTop->next;
+        delete temp;
+        size--;
+    } else {
+        cout << "Stack is empty !" << endl;
+    }
+}
+
+template <class Type>
+Stack<Type> Stack<Type>::operator=(Stack<Type> & otherStack)
+{
+    node<Type> *newNode, *current, *last;
+
+    if (stackTop != NULL) 
+        stackTop = NULL;
+    if (otherStack.stackTop == NULL)
+        stackTop = NULL;
+    else {
+        current = otherStack.stackTop;
+        stackTop = new node<Type>;
+        stackTop->data = current->data;
+        stackTop->next = NULL;
+        last = stackTop;
+        current = current ->next;
+        while (current != NULL)
+        {
+            newNode = new node<Type>;
+            newNode->data = current->data;
+            newNode->next = NULL;
+            last->next = newNode;
+            last = newNode;
+            current = current->next;
+        }
+    }
+    size = otherStack.size;
+    return *this;
+}
