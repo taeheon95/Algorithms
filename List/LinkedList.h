@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __LinkedList_h__
+#define __LinkedList_h__
 
 template<class Type>
 class Node {
@@ -34,3 +35,5 @@ public:
 	void Linsert(int index, Type data);
 	void Lerase(int index);
 };
+
+#endif

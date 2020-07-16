@@ -104,7 +104,7 @@ bool LinkedList<Type>::Lempty()
 }
 
 template<class Type>
-void LinkedList<Type>::Linsert(int index, Type data)
+void LinkedList<Type>::Linsert(int index = 0, Type data)
 {
 	if(index == 0)
 		this.Lpush_front(data);
