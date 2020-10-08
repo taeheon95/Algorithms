@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __graph_h__
+#define __graph_h__
+
 #include<list>
 #include<iostream>
 
@@ -14,3 +16,5 @@ public:
 	void printgraph();
 	void bfs(int s);
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __ArrayList_h__
+#define __ArrayList_h__
+
 #include<iostream>
 using namespace std;
 template<class Type>
@@ -19,3 +21,4 @@ public:
     int LCount();
 };
 
+#endif
