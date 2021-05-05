@@ -11,7 +11,7 @@ private:
 	std::list<int>* adj;
 public:
 	graph(int vertax) : v(vertax)
-	{adj = new std::list<int>[vertax];}
+	{adj = new std::list<int>[v];}
 	void addedge(int src, int dest);
 	void printgraph();
 	void bfs(int s);
