@@ -32,7 +32,7 @@ public:
 	Type Lfront();
 	Type Lback();
 	bool Lempty();
-	void Linsert(int index, Type data);
+	void Linsert(Type data, int index);
 	void Lerase(int index);
 };
 
