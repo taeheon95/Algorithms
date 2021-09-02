@@ -1,6 +1,7 @@
 #include "graph.h"
-#include<iostream>
-#include<list>
+#include <iostream>
+#include <list>
+#include <memory>
 
 using namespace std;
 
@@ -13,10 +14,11 @@ void graph::addedge(int src, int dest)
 
 void graph::printgraph()
 {
-	for (int i=0; i< this->v; i++)
+	for (int i = 0; i < this->v; i++)
 	{
-		cout << endl << "Adjacency list of vertex " << i + 1 << " is \n";
-		for (auto& it : adj[i])
+		cout << endl
+			 << "Adjacency list of vertex " << i + 1 << " is \n";
+		for (auto &it : adj[i])
 			cout << it + 1 << " ";
 	}
 	cout << endl;
@@ -24,7 +26,7 @@ void graph::printgraph()
 
 void graph::bfs(int s)
 {
-	bool* visited = new bool[this->v + 1];
+	bool *visited = new bool[this->v + 1];
 	memset(visited, false, sizeof(bool) * (this->v + 1));
 	visited[s] = true;
 	list<int> q;
@@ -34,7 +36,7 @@ void graph::bfs(int s)
 		int u = q.front();
 		cout << u << " ";
 		q.pop_front();
-		for (auto& it : adj[u])
+		for (auto &it : adj[u])
 		{
 			if (visited[it] == false)
 			{
